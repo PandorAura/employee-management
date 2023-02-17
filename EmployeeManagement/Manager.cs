@@ -2,12 +2,19 @@
 {
     public class Manager : IEmployee
     {
-        private string name;
-        private Guid empId;
-        private Adress adress;
+        private Name name;
+       // private Guid empId;
+        private Address adress;
+
+        public Manager(string Name, Address adress)
+        {
+            this.name = name;
+            this.adress = adress;
+        }       
+
         public void ShowEmployeeDetails()
         {
-            throw new NotImplementedException();
+            System.Console.WriteLine(name.GetLastName());
         }
     }
 }

@@ -1,21 +1,39 @@
 using EmployeeManagement;
 
-AdressBuilder adressBuilder= new AdressBuilder();
-AddressGiver addressGiver = new AddressGiver(adressBuilder);
-string countryName, streetName, cityName;
+string countryName, streetName, cityName, firstName, lastName;
 int houseNumber, streetNumber;
+
+AddressBuilder addressBuilder= new AddressBuilder();
+AddressGiver addressGiver = new AddressGiver(addressBuilder);
+
 Console.WriteLine("The address for x is: ");
-AdressReader adressReader = new AdressReader();
+AddressReader addressReader = new AddressReader();
 
-countryName = adressReader.ReadCountryName();
-cityName = adressReader.ReadCityName();
-streetName = adressReader.ReadStreetName();
-houseNumber = adressReader.ReadHouseNumber();
-streetNumber = adressReader.ReadStreetNumber();
+countryName = addressReader.ReadCountryName();
+cityName = addressReader.ReadCityName();
+streetName = addressReader.ReadStreetName();
+houseNumber = addressReader.ReadHouseNumber();
+streetNumber = addressReader.ReadStreetNumber();
 
-addressGiver.ConstructAdress(countryName, cityName, streetName, houseNumber, streetNumber);
+addressGiver.ConstructHouseAddress(countryName, cityName, streetName, houseNumber, streetNumber);
 
-Adress adress = addressGiver.GetAdress();
+Address adress = addressGiver.GetAdress();
 
 
-Console.WriteLine(adress.GetStreetNumber());
+
+NameBuilder nameBuilder = new NameBuilder();
+Civil civil = new Civil(nameBuilder);
+
+Console.WriteLine("The name is: ");
+NameReader nameReader = new NameReader();
+
+lastName= nameReader.ReadLastName();
+firstName= nameReader.ReadFirstName();
+
+
+civil.Construct(firstName, lastName);
+Name name = civil.GetName();
+
+Developer developer = new Developer(name, adress);
+developer.ShowEmployeeDetails();
+

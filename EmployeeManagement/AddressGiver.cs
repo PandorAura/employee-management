@@ -2,25 +2,36 @@
 {
     public class AddressGiver
     {
-        private AdressBuilder adressBuilder;
+        private AddressBuilder addressBuilder;
 
-        public AddressGiver( AdressBuilder adressBuilder) 
+        public AddressGiver( AddressBuilder adressBuilder) 
         { 
-            this.adressBuilder = adressBuilder;
+            this.addressBuilder = adressBuilder;
         }
 
-        public Adress GetAdress()
+        public Address GetAdress()
         {
-            return adressBuilder.GetAdress();  
+            return addressBuilder.GetAdress();  
         }
 
-        public void ConstructAdress (string countryName, string cityName, string streetName,int houseNumber, int streetNumber)
+        public void ConstructHouseAddress (string countryName, string cityName, string streetName,int houseNumber, int streetNumber)
         {
-            adressBuilder.BuildHouseNumber(houseNumber);
-            adressBuilder.BuildCityName(cityName);
-            adressBuilder.BuildStreetName(streetName);
-            adressBuilder.BuildCountryName(countryName);
-            adressBuilder.BuildStreetNumber(streetNumber);
+            addressBuilder.BuildCountryName(countryName);
+            addressBuilder.BuildCityName(cityName);
+            addressBuilder.BuildStreetName(streetName);
+            addressBuilder.BuildStreetNumber(streetNumber);
+            addressBuilder.BuildHouseNumber(houseNumber);
+
+        }
+
+        public void ConstructApartamentAdress(string countryName, string cityName, string streetName, int streetNumber, int apartamentBuildingNumber, int apartamentNumber)
+        {
+            addressBuilder.BuildCityName(cityName);
+            addressBuilder.BuildStreetName(streetName);
+            addressBuilder.BuildCountryName(countryName);
+            addressBuilder.BuildStreetNumber(streetNumber);
+            addressBuilder.BuildApartamentBuildingNumber(apartamentBuildingNumber);
+            addressBuilder.BuildApartamentNumber(apartamentNumber);
         }
     }
 }

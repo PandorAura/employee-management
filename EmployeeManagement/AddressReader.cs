@@ -1,17 +1,17 @@
 ﻿namespace EmployeeManagement
 {
-    public class AdressReader
+    public class AddressReader
     {
         public String ReadCountryName()
         {
             string countryName = "";
 
-            while (!IsInputValide(countryName))
+            while (!IsInputValid(countryName))
             {
                 Console.WriteLine("countryName = ");
                 countryName = Console.ReadLine();
 
-                if (!IsInputValide(countryName))
+                if (!IsInputValid(countryName))
                 {
                     Console.WriteLine("The value cannot be null.");
                 }
@@ -24,12 +24,12 @@
         {
             string cityName = "";
 
-            while (!IsInputValide(cityName))
+            while (!IsInputValid(cityName))
             {
                 Console.WriteLine("cityName = ");
                 cityName = Console.ReadLine();
 
-                if (!IsInputValide(cityName))
+                if (!IsInputValid(cityName))
                 {
                     Console.WriteLine("The value cannot be null.");
                 }
@@ -41,12 +41,12 @@
         {
             string streetName = "";
 
-            while (!IsInputValide(streetName))
+            while (!IsInputValid(streetName))
             {
                 Console.WriteLine("streetName = ");
                 streetName = Console.ReadLine();
 
-                if (!IsInputValide(streetName))
+                if (!IsInputValid(streetName))
                 {
                     Console.WriteLine("The value cannot be null.");
                 }
@@ -62,7 +62,7 @@
             {
                 Console.WriteLine("houseNumber = ");
                 var numberRead = Console.ReadLine();
-                if (!IsInputValide(numberRead))
+                if (!IsInputValid(numberRead))
                 {
                     houseNumber = null;
                     Console.WriteLine("The value cannot be null.");
@@ -76,6 +76,49 @@
             return (int)houseNumber;
         }
 
+        public int ReadApartamentBuildingNumber()
+        {
+            int? apartamentBuildingNumber = null;
+
+            while (!IsNumberInputValid(apartamentBuildingNumber))
+            {
+                Console.WriteLine("apartamentBuildingNumber = ");
+                var numberRead = Console.ReadLine();
+                if (!IsInputValid(numberRead))
+                {
+                    apartamentBuildingNumber = null;
+                    Console.WriteLine("The value cannot be null.");
+                }
+                else
+                {
+                    apartamentBuildingNumber = Convert.ToInt32(numberRead);
+                }
+
+            }
+            return (int)apartamentBuildingNumber;
+        }
+
+        public int ReadApartamentNumber()
+        {
+            int? apartamentNumber = null;
+            while (!IsNumberInputValid(apartamentNumber))
+            {
+                Console.WriteLine("apartamentNumber = ");
+                var numberRead = Console.ReadLine();
+                if (!IsInputValid(numberRead))
+                {
+                    apartamentNumber = null;
+                    Console.WriteLine("The value cannot be null.");
+                }
+                else
+                {
+                    apartamentNumber = Convert.ToInt32(numberRead);
+                }
+
+            }
+            return (int)apartamentNumber;
+        }
+
         public int ReadStreetNumber()
         {
             int? streetNumber = null;
@@ -84,7 +127,7 @@
             {
                 Console.WriteLine("streetNumber = ");
                 var numberRead = Console.ReadLine();
-                if (!IsInputValide(numberRead))
+                if (!IsInputValid(numberRead))
                 {
                     streetNumber = null;
                     Console.WriteLine("The value cannot be null.");
@@ -104,7 +147,7 @@
             return false;
         }
 
-        private bool IsInputValide(string input)
+        private bool IsInputValid(string input)
         {
             if (input != "")
                return true;
