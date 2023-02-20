@@ -19,6 +19,23 @@
             return firstName;
         }
 
+        public string ReadMiddleName()
+        {
+            string middleName = "";
+
+            while (!IsInputValid(middleName))
+            {
+                Console.WriteLine("middleName = ");
+                middleName = Console.ReadLine();
+
+                if (!IsInputValid(middleName))
+                {
+                    Console.WriteLine("The value cannot be null. ");
+                }
+            }
+            return middleName;
+        }
+
         public string ReadLastName()
         {
             string lastName = "";

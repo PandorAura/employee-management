@@ -42,7 +42,8 @@
         public void BuildApartamentNumber(int apartamentNumber)
         {
             adress.SetApartamentNumber(apartamentNumber);
-        }
+        } 
+
         public Address GetAdress()
         {
             return this.adress;

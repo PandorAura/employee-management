@@ -13,6 +13,11 @@
             name.SetFirstName(firstName);
         }
 
+        public void BuildMiddleName(string middleName) 
+        {
+            name.SetMiddleName(middleName);
+        }
+
         public void BuildLastName(string lastName)
         {
             name.SetLastName(lastName);

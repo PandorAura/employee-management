@@ -14,9 +14,15 @@
             return this.nameBuilder.GetName();
         }
 
-        public void Construct(string firstName, string lastName)
+        public void ConstructNameWithoutMiddleName(string firstName, string lastName)
         {
             this.nameBuilder.BuildFirstName(firstName);
+            this.nameBuilder.BuildLastName(lastName);
+        }
+        public void ConstructNameWithMiddleName(string firstName, string lastName, string middleName)
+        {
+            this.nameBuilder.BuildFirstName(firstName);
+            this.nameBuilder.BuildMiddleName(middleName);
             this.nameBuilder.BuildLastName(lastName);
         }
     }

@@ -2,7 +2,7 @@
 {
     public class Name : IName
     {
-        string firstName, lastName;
+        private string firstName, lastName, middleName;
 
         public void SetFirstName(string firstName)
         {
@@ -12,6 +12,11 @@
         public void SetLastName(string lastName)
         {
             this.lastName = lastName;
+        }
+
+        public void SetMiddleName(string middleName)
+        {
+            this.middleName = middleName;
         }
 
         public string GetFirstName() { return this.firstName; }

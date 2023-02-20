@@ -3,6 +3,7 @@
     public interface INameBuilder
     {
         public void BuildFirstName(string firstName);
+        public void BuildMiddleName(string middleName);
         public  void BuildLastName(string lastName);
         public Name GetName();
     }
