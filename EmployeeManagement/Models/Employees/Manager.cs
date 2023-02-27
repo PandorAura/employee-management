@@ -9,7 +9,7 @@
         public Employee manager;
         private List<Employee> Subordinates = new List<Employee>();
 
-        public Manager(Guid managerId, Name name, Address address)
+        public Manager(Guid managerId, Name name, Address address) : base (name, address)
         {
             this.managerId = managerId;
             this.name = name;
@@ -36,11 +36,11 @@
             Subordinates.Remove(developer);
         }
 
-        public void ShowEmployeeDetails()
+        public override void ShowEmployeeDetails()
         {
             foreach (var employee in Subordinates)
             {
-                employee.ShowEmployeeDetails();
+                Console.WriteLine(employee.name.lastName);
             }
         }
     }

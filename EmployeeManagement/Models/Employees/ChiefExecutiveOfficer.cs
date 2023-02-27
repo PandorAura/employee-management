@@ -33,11 +33,14 @@
         {
             employeeList.Remove(developer);
         }
+
         public override void ShowEmployeeDetails()
         {
+            Console.WriteLine($"CEO: {name.lastName}");
+            Console.WriteLine("Employees");
             foreach (var employee in employeeList)
             {
-                Console.WriteLine(employee.ShowEmployeeDetails());
+                Console.WriteLine(employee.name.lastName);
             }
         }
     }

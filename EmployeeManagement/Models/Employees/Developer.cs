@@ -16,7 +16,7 @@
 
         public override void ShowEmployeeDetails()
         {
-            Console.WriteLine(address.streetNumber);
+            Console.WriteLine(name.lastName);
         }
     }
 }
