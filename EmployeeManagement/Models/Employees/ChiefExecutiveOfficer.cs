@@ -1,17 +1,15 @@
 ﻿namespace EmployeeManagement.Models.Employees
 {
-    // don't use. Managers can have managers beneath them
-    public class ChiefExecutiveOfficer : IEmployee
+    public class ChiefExecutiveOfficer : Employee
     {
+        private Guid ceoID;
         private Address address;
         private Name name;
+        private List<Employee> employeeList = new List<Employee>();
 
-        // no manager field, because CEO does not have a manager
-
-        private List<IEmployee> employeeList = new List<IEmployee>();
-
-        public ChiefExecutiveOfficer(Name name, Address address)
+        public ChiefExecutiveOfficer(Guid ceoID,Name name, Address address) : base (name, address)
         {
+            this.ceoID = ceoID;
             this.name = name;
             this.address = address;
         }
@@ -35,11 +33,11 @@
         {
             employeeList.Remove(developer);
         }
-        public void ShowEmployeeDetails()
+        public override void ShowEmployeeDetails()
         {
             foreach (var employee in employeeList)
             {
-                employee.ShowEmployeeDetails();
+                Console.WriteLine(employee.ShowEmployeeDetails());
             }
         }
     }

@@ -13,9 +13,9 @@ namespace EmployeeManagement
             this.addressBuilder = addressBuilder;
         }
 
-        public Address GetAdress()
+        public Address GetAddress()
         {
-            return addressBuilder.GetAdress();
+            return addressBuilder.GetAddress();
         }
 
         public void ConstructAddress(string countryName, string cityName, string streetName, int streetNumber, int? houseNumber, int? apartamentBuildingNumber, int? apartamentNumber)
@@ -27,15 +27,16 @@ namespace EmployeeManagement
             if (houseNumber != null)
             {
                 addressBuilder.WithHouseNumber(houseNumber);
+
             } else
             {
                 addressBuilder.WithApartamentBuildingNumber(apartamentBuildingNumber);
                 addressBuilder.WithApartamentNumber(apartamentNumber);
             }
 
-            if(ValidateAddress.IsAddressValid(GetAdress()))
+            if(!ValidateAddress.IsAddressValid(GetAddress()))
             {
-                //save in json file
+                throw new Exception();
             }
         }
     }

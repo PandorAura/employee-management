@@ -9,32 +9,28 @@ namespace EmployeeManagement.Services
         string countryName, streetName, cityName;
         int houseNumber, streetNumber, apartamentBuildingNumber, apartamentNumber;
 
-        AddressBuilder addressBuilder = new AddressBuilder();
-        AddressService addressService = new AddressService(addressBuilder);
-
         public Address CreateAddress()
         {
+            AddressBuilder addressBuilder = new AddressBuilder();
+            AddressService addressService = new AddressService(addressBuilder);
+
             Console.WriteLine("Is the person living in a house? ");
             bool isLivingInAHouse = bool.Parse(Console.ReadLine());
+            Console.WriteLine("The address is: ");
+            AddressReader addressReader = new AddressReader();
 
             if (isLivingInAHouse)
             {
-                Console.WriteLine("The address for x is: ");
-                AddressReader addressReader = new AddressReader();
-
                 countryName = addressReader.ReadCountryName();
                 cityName = addressReader.ReadCityName();
                 streetName = addressReader.ReadStreetName();
                 houseNumber = addressReader.ReadHouseNumber();
                 streetNumber = addressReader.ReadStreetNumber();
 
-                addressService.ConstructAddress(countryName, cityName, streetName, houseNumber, streetNumber);
+                addressService.ConstructAddress(countryName, cityName, streetName, streetNumber,houseNumber, apartamentBuildingNumber, apartamentNumber);
             }
             else
             {
-                Console.WriteLine("The address for x is: ");
-                AddressReader addressReader = new AddressReader();
-
                 countryName = addressReader.ReadCountryName();
                 cityName = addressReader.ReadCityName();
                 streetName = addressReader.ReadStreetName();
@@ -42,17 +38,13 @@ namespace EmployeeManagement.Services
                 apartamentBuildingNumber = addressReader.ReadApartamentBuildingNumber();
                 apartamentNumber = addressReader.ReadApartamentNumber();
 
-                addressService.ConstructApartamentAdress(countryName, cityName, streetName, streetNumber, apartamentBuildingNumber, apartamentNumber);
+                addressService.ConstructAddress(countryName, cityName, streetName, streetNumber, houseNumber, apartamentBuildingNumber, apartamentNumber);
             }
 
-
-
-            Address address = addressService.GetAdress();
+            Address address = addressService.GetAddress();
 
             return address;
 
         }
-
-       
     }
 }

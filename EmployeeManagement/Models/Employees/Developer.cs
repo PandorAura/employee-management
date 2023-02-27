@@ -1,21 +1,20 @@
 ﻿namespace EmployeeManagement.Models.Employees
 {
-    public class Developer : IEmployee
+    public class Developer : Employee
     {
+        private Guid empId;
         private Name name;
-        //private Guid empId;
         private Address address;
+        public Employee Manager;
 
-        // Add field -
-        // public IEmployee Manager;
-
-        public Developer(Name name, Address address)
+        public Developer(Guid empId, Name name, Address address) : base (name, address)
         {
+            this.empId = empId;
             this.name = name;
             this.address = address;
         }
 
-        public void ShowEmployeeDetails()
+        public override void ShowEmployeeDetails()
         {
             Console.WriteLine(address.streetNumber);
         }

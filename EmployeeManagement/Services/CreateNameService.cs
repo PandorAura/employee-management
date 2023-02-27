@@ -8,15 +8,15 @@ namespace EmployeeManagement.Services
     {
         string firstName, lastName, middleName;
 
+
     public Name CreateName()
         {
-            Console.WriteLine("Is the person having a middle name? ");
-            bool isHavingAMiddleName = bool.Parse(Console.ReadLine());
-
 
             NameBuilder nameBuilder = new NameBuilder();
             NameService nameService = new NameService(nameBuilder);
 
+            Console.WriteLine("Is the person having a middle name? ");
+            bool isHavingAMiddleName = bool.Parse(Console.ReadLine());
             Console.WriteLine("The name is: ");
             NameReader nameReader = new NameReader();
 

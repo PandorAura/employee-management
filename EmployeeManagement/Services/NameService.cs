@@ -1,5 +1,6 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Services.Validators;
 
 namespace EmployeeManagement
 {
@@ -19,12 +20,17 @@ namespace EmployeeManagement
 
         public void ConstructName(string firstName,string? middleName, string lastName)
         {
-            this.nameBuilder.WithFirstName(firstName);
+            nameBuilder.WithFirstName(firstName);
             if (middleName!= null)
             {
-                this.nameBuilder.WithMiddleName(middleName);
+                nameBuilder.WithMiddleName(middleName);
             }
-            this.nameBuilder.WithLastName(lastName);
+            nameBuilder.WithLastName(lastName);
+
+            if (!ValidateName.IsNameValid(GetName()))
+            {
+                throw new Exception();
+            }
         }
      
     }

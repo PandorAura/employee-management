@@ -12,6 +12,6 @@ namespace EmployeeManagement.Builders
         public void WithApartamentBuildingNumber(int? apartamentBuildingNumber);
         public void WithApartamentNumber(int? apartamentNumber);
         public AddressBuilder Reset();
-        public Address GetAdress();
+        public Address GetAddress();
     }
 }

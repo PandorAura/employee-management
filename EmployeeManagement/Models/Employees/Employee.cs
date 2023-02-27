@@ -1,23 +1,15 @@
 ﻿namespace EmployeeManagement.Models.Employees
 {
-    public class Manager : IEmployee //are o lista de angajati
+    public abstract class Employee
     {
-        private Guid empId;
-        private Name name;
-        private Address adress;
+        protected Name name;
+        protected Address address;
 
-        public IEmployee manager;
-        private List<IEmployee> Subordinates = new List<IEmployee>();
-
-        public Manager(Name name, Address address)
+        public Employee (Name name, Address address)
         {
-            name = name;
-            adress = address;
+            this.name = name;
+            this.address = address;
         }
-
-        public void ShowEmployeeDetails()
-        {
-            Console.WriteLine(name.GetLastName());
-        }
+        public abstract void ShowEmployeeDetails();
     }
 }

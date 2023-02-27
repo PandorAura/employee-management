@@ -52,7 +52,7 @@ namespace EmployeeManagement.Builders
             address.apartamentNumber = apartamentNumber;
         }
 
-        public Address GetAdress()
+        public Address GetAddress()
         {
             return address;
         }
