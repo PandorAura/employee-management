@@ -4,20 +4,20 @@ namespace EmployeeManagement.Services.Validators
 {
     public class ValidateAddress
     {
-        public static bool IsAddressValid(Address address)
+        public bool IsAddressValid(Address address)
         {
             if (address == null)
             {
                 return false;
             }
 
-            if (address.countryName == "" || address.cityName == "" || address.streetName == "" || address.streetNumber == null)
+            if (address.CountryName == "" || address.CityName == "" || address.StreetName == "" || address.StreetNumber == null)
             {
                 return false;
             }
             else
             {
-                if (address.houseNumber == null && (address.apartamentBuildingNumber == null || address.apartamentNumber == null))
+                if (address.HouseNumber == null && (address.ApartamentBuildingNumber == null || address.ApartamentNumber == null))
                 {
                     return false;
                 }

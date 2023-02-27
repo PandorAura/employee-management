@@ -10,7 +10,7 @@ namespace EmployeeManagement.Services.Validators
             {
                 return false;
             }
-            if (name.firstName == "" || name.lastName == "")
+            if (name.FirstName == "" || name.LastName == "")
             {
                 return false;
             }

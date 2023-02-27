@@ -2,14 +2,9 @@
 {
     public class Manager : Employee //are o lista de angajati
     {
-        private Guid managerId;
-        private Name name;
-        private Address address;
-
-        public Employee manager;
         private List<Employee> Subordinates = new List<Employee>();
 
-        public Manager(Guid managerId, Name name, Address address) : base (name, address)
+        public Manager(Guid managerId, Name name, Address address) : base(name, address)
         {
             this.managerId = managerId;
             this.name = name;

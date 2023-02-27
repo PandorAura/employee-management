@@ -19,37 +19,37 @@ namespace EmployeeManagement.Builders
 
         public void WithCountryName(string countryName)
         {
-            address.countryName = countryName;
+            address.CountryName = countryName;
         }
 
         public void WithCityName(string cityName)
         {
-            address.cityName = cityName;
+            address.CityName = cityName;
         }
 
         public void WithStreetName(string streetName) 
         {
-            address.streetName = streetName;
+            address.StreetName = streetName;
         }
 
         public void WithStreetNumber(int streetNumber)
         {
-            address.streetNumber = streetNumber;
+            address.StreetNumber = streetNumber;
         }
 
         public void WithHouseNumber(int? houseNumber)
         {
-            address.houseNumber = houseNumber;
+            address.HouseNumber = houseNumber;
         }
 
         public void WithApartamentBuildingNumber(int? apartamentBuildingNumber)
         {
-            address.apartamentBuildingNumber = apartamentBuildingNumber;
+            address.ApartamentBuildingNumber = apartamentBuildingNumber;
         }
 
         public void WithApartamentNumber(int? apartamentNumber)
         {
-            address.apartamentNumber = apartamentNumber;
+            address.ApartamentNumber = apartamentNumber;
         }
 
         public Address GetAddress()

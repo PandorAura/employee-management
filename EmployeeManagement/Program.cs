@@ -18,14 +18,3 @@ Name managerName = createNameService.CreateName();
 Address managerAddress = createAddressService.CreateAddress();
 Manager manager = new Manager(managerId, managerName, managerAddress);
 //data.SaveData(manager);
-
-Guid ceoID = new Guid();
-Name ceoName = createNameService.CreateName();
-Address ceoAddress = createAddressService.CreateAddress();
-ChiefExecutiveOfficer ceo = new ChiefExecutiveOfficer(ceoID,ceoName, ceoAddress);
-//data.SaveData(ceo);
-
-
-ceo.AddManager(manager);
-ceo.AddDeveloper(developer);
-ceo.ShowEmployeeDetails();

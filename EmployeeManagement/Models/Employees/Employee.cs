@@ -2,8 +2,9 @@
 {
     public abstract class Employee
     {
-        public Name name;
-        public Address address;
+        public string EmployeeId;
+        public Name Name { get; set; }
+        public Address Address { get; set; }
 
         public Employee (Name name, Address address)
         {

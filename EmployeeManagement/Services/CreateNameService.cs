@@ -14,6 +14,9 @@ namespace EmployeeManagement.Services
 
             NameBuilder nameBuilder = new NameBuilder();
             NameService nameService = new NameService(nameBuilder);
+            Name name;
+            //WithMiddleName name = new WithMiddleName();
+            //WithoutMiddleName nameWithoutMiddleName = new WithoutMiddleName();
 
             Console.WriteLine("Is the person having a middle name? ");
             bool isHavingAMiddleName = bool.Parse(Console.ReadLine());
@@ -22,22 +25,20 @@ namespace EmployeeManagement.Services
 
             if (isHavingAMiddleName)
             {
-                lastName = nameReader.ReadLastName();
-                middleName = nameReader.ReadMiddleName();
                 firstName = nameReader.ReadFirstName();
+                middleName = nameReader.ReadMiddleName();
+                lastName = nameReader.ReadLastName();
 
-                nameService.ConstructName(firstName, middleName, lastName);
-
+                name = nameBuilder.ConstructNameWithMiddleName(firstName, middleName, lastName);
             }
             else
             {
                 lastName = nameReader.ReadLastName();
                 firstName = nameReader.ReadFirstName();
 
-                nameService.ConstructName(firstName, middleName, lastName);
+                name = nameBuilder.ConstructNameWithoutMiddleName(firstName, lastName);
             }
 
-            Name name = nameService.GetName();
 
             return name;
 

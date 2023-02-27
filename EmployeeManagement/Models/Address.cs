@@ -2,15 +2,15 @@
 
 namespace EmployeeManagement.Models
 {
-    public class Address
+    // Create HouseAddress and ApartmentAddress extending Address (abstract class)
+    public abstract class Address
     {
-        public int MyProperty { get; set; }
-        public int streetNumber { get; set; }
-        public int? houseNumber { get; set; }
-        public int? apartamentBuildingNumber { get; set; }
-        public int? apartamentNumber { get; set; }
-        public string streetName { get; set; }
-        public string cityName { get; set; }
-        public string countryName { get; set; }
+        public int StreetNumber { get; set; }
+        public int? HouseNumber { get; set; }
+        public int? ApartamentBuildingNumber { get; set; }
+        public int? ApartamentNumber { get; set; }
+        public string StreetName { get; set; }
+        public string CityName { get; set; }
+        public string CountryName { get; set; }
     }
 }

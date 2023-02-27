@@ -13,17 +13,12 @@ namespace EmployeeManagement
             this.nameBuilder = nameBuilder;
         }
 
-        public Name GetName()
-        {
-            return this.nameBuilder.GetName();
-        }
-
         public void ConstructName(string firstName,string? middleName, string lastName)
         {
             nameBuilder.WithFirstName(firstName);
             if (middleName!= null)
             {
-                nameBuilder.WithMiddleName(middleName);
+                nameBuilder.;
             }
             nameBuilder.WithLastName(lastName);
 
