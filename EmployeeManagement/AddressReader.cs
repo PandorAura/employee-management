@@ -17,7 +17,6 @@
                 }
             }
             return countryName;
-         
         }
 
         public string ReadCityName()

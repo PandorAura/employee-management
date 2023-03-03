@@ -2,9 +2,9 @@
 
 namespace EmployeeManagement.Services.Validators
 {
-    public class ValidateName
+    public class NameValidator
     {
-        public static bool IsNameValid(Name name)
+        public bool IsNameValid(Name name)
         {
             if (name == null)
             {

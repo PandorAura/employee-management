@@ -4,18 +4,18 @@ namespace EmployeeManagement.Builders
 {
     public class NameBuilder
     {
-        public WithoutMiddleName ConstructNameWithoutMiddleName (string firstName, string lastName)
+        public Name ConstructName(string firstName, string lastName)
         {
-            WithoutMiddleName name = new WithoutMiddleName();
+            Name name = new Name();
             name.FirstName = firstName;
             name.LastName = lastName;
 
             return name;
         }
 
-        public WithMiddleName ConstructNameWithMiddleName (string firstName, string middleName, string lastName)
+        public NameWithMiddleName ConstructNameWithMiddleName (string firstName, string middleName, string lastName)
         {
-            WithMiddleName name = new WithMiddleName();
+            NameWithMiddleName name = new NameWithMiddleName();
             name.FirstName = firstName;
             name.MiddleName = middleName;
             name.LastName = lastName;

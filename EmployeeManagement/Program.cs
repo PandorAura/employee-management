@@ -1,20 +1,24 @@
 using EmployeeManagement;
+using EmployeeManagement.Menu;
 using EmployeeManagement.Models;
 using EmployeeManagement.Models.Employees;
-using EmployeeManagement.Services;
 
-DataPersist data = new DataPersist();
+DataPersist data = new();
 
-Guid devId = new Guid();
-CreateNameService createNameService= new CreateNameService();
+Guid devId = new();
+NameMenu createNameService= new();
+AddressMenu createAddressService = new();
+
 Name devName = createNameService.CreateName();
-CreateAddressService createAddressService= new CreateAddressService();
 Address devAddress= createAddressService.CreateAddress();
-Developer developer = new Developer(devId, devName, devAddress);
+Developer developer = new(devId, devName, devAddress);
 //data.SaveData(developer);
 
-Guid managerId = new Guid();
+Guid managerId = new();
 Name managerName = createNameService.CreateName();
 Address managerAddress = createAddressService.CreateAddress();
-Manager manager = new Manager(managerId, managerName, managerAddress);
+Manager manager = new(managerId, managerName, managerAddress);
 //data.SaveData(manager);
+
+manager.Subordinates.Add(developer);
+Console.WriteLine(manager.ShowEmployeeDetails());

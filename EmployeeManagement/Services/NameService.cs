@@ -1,32 +1,28 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Repositorys;
 using EmployeeManagement.Services.Validators;
 
-namespace EmployeeManagement
+namespace EmployeeManagement.Services
 {
     public class NameService
     {
-        private NameBuilder nameBuilder;
+        NameBuilder nameBuilder = new NameBuilder();
+        NameValidator nameValidator = new NameValidator();
+        NameRepository nameRepository = new NameRepository();
 
-        public NameService(NameBuilder nameBuilder)
+        public Name ConstructNameWithMiddleName(string firstName, string middleName, string lastName)
         {
-            this.nameBuilder = nameBuilder;
+           Name name =  nameBuilder.ConstructNameWithMiddleName(firstName, middleName, lastName);
+            if (nameValidator.IsNameValid(name)) {
+                nameRepository.SaveName(name);
+                return name;
+            } else
+            {
+                throw new Exception("The name provided is not valid. ");
+            }
+
         }
 
-        public void ConstructName(string firstName,string? middleName, string lastName)
-        {
-            nameBuilder.WithFirstName(firstName);
-            if (middleName!= null)
-            {
-                nameBuilder.;
-            }
-            nameBuilder.WithLastName(lastName);
-
-            if (!ValidateName.IsNameValid(GetName()))
-            {
-                throw new Exception();
-            }
-        }
-     
     }
 }

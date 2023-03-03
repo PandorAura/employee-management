@@ -1,60 +1,31 @@
 ﻿using EmployeeManagement.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace EmployeeManagement.Builders
 {
-    public class AddressBuilder : IAddressBuilder
+    public class AddressBuilder  
     {
-        private Address address;
-
-        public AddressBuilder()
+        public ApartamentAddress ConstructApartamentAddress(string countryName, string cityName, string streetName, int buildingNumber, int apartamentNumber)
         {
-            address = new Address();
+            ApartamentAddress apartamentAddress = new ApartamentAddress();
+            apartamentAddress.CountryName = countryName;
+            apartamentAddress.CityName = cityName;
+            apartamentAddress.StreetName = streetName;
+            apartamentAddress.BuildingNumber = buildingNumber;
+            apartamentAddress.ApartamentNumber = apartamentNumber;
+
+            return apartamentAddress;
         }
 
-        public AddressBuilder Reset()
+        public HouseAddress ConstructHouseAddress(string countryName, string cityName, string streetName, int houseNumber)
         {
-            address = new Address();
-            return this;
-        }
+            HouseAddress houseAddress= new HouseAddress();
+            houseAddress.CountryName = countryName;
+            houseAddress.CityName = cityName;
+            houseAddress.StreetName = streetName;
+            houseAddress.HouseNumber = houseNumber;
 
-        public void WithCountryName(string countryName)
-        {
-            address.CountryName = countryName;
-        }
-
-        public void WithCityName(string cityName)
-        {
-            address.CityName = cityName;
-        }
-
-        public void WithStreetName(string streetName) 
-        {
-            address.StreetName = streetName;
-        }
-
-        public void WithStreetNumber(int streetNumber)
-        {
-            address.StreetNumber = streetNumber;
-        }
-
-        public void WithHouseNumber(int? houseNumber)
-        {
-            address.HouseNumber = houseNumber;
-        }
-
-        public void WithApartamentBuildingNumber(int? apartamentBuildingNumber)
-        {
-            address.ApartamentBuildingNumber = apartamentBuildingNumber;
-        }
-
-        public void WithApartamentNumber(int? apartamentNumber)
-        {
-            address.ApartamentNumber = apartamentNumber;
-        }
-
-        public Address GetAddress()
-        {
-            return address;
+            return houseAddress;
         }
     }
 }

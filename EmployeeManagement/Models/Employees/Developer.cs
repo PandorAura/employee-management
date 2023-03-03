@@ -2,18 +2,15 @@
 {
     public class Developer : Employee
     {
-        public Employee Manager;
+        public Employee? Manager;
 
-        public Developer(Guid empId, Name name, Address address) : base (name, address)
+        public Developer(Guid devId, Name name, Address address) : base (devId, name, address)
         {
-            this.empId = empId;
-            this.name = name;
-            this.address = address;
         }
 
-        public override void ShowEmployeeDetails()
+        public override string ShowEmployeeDetails()
         {
-            Console.WriteLine(name.lastName);
+            return base.ShowEmployeeDetails();
         }
     }
 }
