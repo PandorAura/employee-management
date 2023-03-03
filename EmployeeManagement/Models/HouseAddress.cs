@@ -2,7 +2,7 @@
 {
     public class HouseAddress : Address
     {
-        public int HouseNumber { get; set; }
+        public int? HouseNumber { get; set; }
 
         public override string DisplayAddress()
         {

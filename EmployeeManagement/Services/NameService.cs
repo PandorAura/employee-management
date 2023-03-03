@@ -21,7 +21,21 @@ namespace EmployeeManagement.Services
             {
                 throw new Exception("The name provided is not valid. ");
             }
+        }
 
+        public Name ConstructName(string firstName, string lastName)
+        {
+            Name name = nameBuilder.ConstructName(firstName, lastName);
+
+            if (nameValidator.IsNameValid(name))
+            {
+                nameRepository.SaveName(name);
+                return name;
+            }
+            else
+            {
+                throw new Exception("The name provided is not valid. ");
+            }
         }
 
     }

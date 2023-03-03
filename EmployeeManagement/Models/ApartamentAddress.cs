@@ -2,8 +2,8 @@
 {
     public class ApartamentAddress : Address
     {
-        public int BuildingNumber { get; set; }
-        public int ApartamentNumber { get; set; }
+        public int? BuildingNumber { get; set; }
+        public int? ApartamentNumber { get; set; }
 
         public override string DisplayAddress()
         {
