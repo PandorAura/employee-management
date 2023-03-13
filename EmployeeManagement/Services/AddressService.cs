@@ -1,42 +1,41 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Repositorys;
 using EmployeeManagement.Services.Validators;
 
-namespace EmployeeManagement
+namespace EmployeeManagement.Services
 {
     public class AddressService
     {
-        private AddressBuilder addressBuilder;
+        AddressBuilder addressBuilder = new AddressBuilder();
+        AddressValidator addressValidator = new AddressValidator();
+        AddressRepository addressRepository= new AddressRepository();
 
-        public AddressService(AddressBuilder addressBuilder)
+       public Address ConstructHouseAddress(string countryName, string cityName, string streetName, int? houseNumber)
         {
-            this.addressBuilder = addressBuilder;
-        }
-
-        public Address GetAddress()
-        {
-            return addressBuilder.GetAddress();
-        }
-
-        public void ConstructAddress(string countryName, string cityName, string streetName, int streetNumber, int? houseNumber, int? apartamentBuildingNumber, int? apartamentNumber)
-        {
-            addressBuilder.WithCountryName(countryName);
-            addressBuilder.WithCityName(cityName);
-            addressBuilder.WithStreetName(streetName);
-            addressBuilder.WithStreetNumber(streetNumber);
-            if (houseNumber != null)
+            Address address = addressBuilder.ConstructHouseAddress(countryName, cityName, streetName, houseNumber);
+            if (addressValidator.IsAddressValid(address))
             {
-                addressBuilder.WithHouseNumber(houseNumber);
-
-            } else
+                addressRepository.SaveAddress(address);
+                return address;
+            } 
+            else
             {
-                addressBuilder.WithApartamentBuildingNumber(apartamentBuildingNumber);
-                addressBuilder.WithApartamentNumber(apartamentNumber);
+                throw new Exception("The address provided is not valid. ");
             }
+        }
 
-            if(!ValidateAddress.IsAddressValid(GetAddress()))
+        public Address ConstructApartamentAddress(string countryName, string cityName, string streetName, int? apartamentBuildingNumber, int? apartamentNumber)
+        {
+            Address address = addressBuilder.ConstructApartamentAddress(countryName, cityName, streetName, apartamentBuildingNumber, apartamentNumber);
+            if (addressValidator.IsAddressValid(address))
             {
-                throw new Exception();
+                addressRepository.SaveAddress(address);
+                return address;
+            }
+            else
+            {
+                throw new Exception("The address provided is not valid. ");
             }
         }
     }

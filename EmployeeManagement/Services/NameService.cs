@@ -1,37 +1,42 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Repositorys;
 using EmployeeManagement.Services.Validators;
 
-namespace EmployeeManagement
+namespace EmployeeManagement.Services
 {
     public class NameService
     {
-        private NameBuilder nameBuilder;
+        NameBuilder nameBuilder = new NameBuilder();
+        NameValidator nameValidator = new NameValidator();
+        NameRepository nameRepository = new NameRepository();
 
-        public NameService(NameBuilder nameBuilder)
+        public Name ConstructNameWithMiddleName(string firstName, string middleName, string lastName)
         {
-            this.nameBuilder = nameBuilder;
-        }
-
-        public Name GetName()
-        {
-            return this.nameBuilder.GetName();
-        }
-
-        public void ConstructName(string firstName,string? middleName, string lastName)
-        {
-            nameBuilder.WithFirstName(firstName);
-            if (middleName!= null)
+           Name name =  nameBuilder.ConstructNameWithMiddleName(firstName, middleName, lastName);
+            if (nameValidator.IsNameValid(name)) {
+                nameRepository.SaveName(name);
+                return name;
+            } else
             {
-                nameBuilder.WithMiddleName(middleName);
-            }
-            nameBuilder.WithLastName(lastName);
-
-            if (!ValidateName.IsNameValid(GetName()))
-            {
-                throw new Exception();
+                throw new Exception("The name provided is not valid. ");
             }
         }
-     
+
+        public Name ConstructName(string firstName, string lastName)
+        {
+            Name name = nameBuilder.ConstructName(firstName, lastName);
+
+            if (nameValidator.IsNameValid(name))
+            {
+                nameRepository.SaveName(name);
+                return name;
+            }
+            else
+            {
+                throw new Exception("The name provided is not valid. ");
+            }
+        }
+
     }
 }

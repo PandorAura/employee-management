@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagement
+﻿namespace EmployeeManagement.Readers
 {
     public class NameReader
     {
@@ -9,7 +9,7 @@
             while (!IsInputValid(firstName))
             {
                 Console.WriteLine("firstName = ");
-                firstName= Console.ReadLine();
+                firstName = Console.ReadLine();
 
                 if (!IsInputValid(firstName))
                 {

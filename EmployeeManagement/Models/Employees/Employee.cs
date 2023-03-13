@@ -2,14 +2,20 @@
 {
     public abstract class Employee
     {
-        public Name name;
-        public Address address;
+        public Guid EmployeeId { get; set; }
+        public Name Name { get; set; }
+        public Address Address { get; set; }
 
-        public Employee (Name name, Address address)
+        public Employee (Guid id, Name name, Address address)
         {
-            this.name = name;
-            this.address = address;
+            EmployeeId = id;
+            Name = name;
+            Address = address;
         }
-        public abstract void ShowEmployeeDetails();
+
+        public virtual string ShowEmployeeDetails()
+        {
+            return $"Employee: {EmployeeId} {Name.DisplayName()} {Address.DisplayAddress()} \n";
+        }
     }
 }

@@ -2,9 +2,12 @@
 {
     public class Name
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
-        public string middleName { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
       
+        public virtual string DisplayName()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

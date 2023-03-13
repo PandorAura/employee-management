@@ -2,31 +2,24 @@
 
 namespace EmployeeManagement.Builders
 {
-    public class NameBuilder : INameBuilder
+    public class NameBuilder
     {
-        private Name name;
+        public Name ConstructName(string firstName, string lastName)
+        {
+            Name name = new Name();
+            name.FirstName = firstName;
+            name.LastName = lastName;
 
-        public NameBuilder()
-        {
-            name = new Name();
-        }
-        public void WithFirstName(string firstName)
-        {
-            name.firstName= firstName;
+            return name;
         }
 
-        public void WithMiddleName(string middleName)
+        public NameWithMiddleName ConstructNameWithMiddleName (string firstName, string middleName, string lastName)
         {
-            name.middleName = middleName;
-        }
+            NameWithMiddleName name = new NameWithMiddleName();
+            name.FirstName = firstName;
+            name.MiddleName = middleName;
+            name.LastName = lastName;
 
-        public void WithLastName(string lastName)
-        {
-            name.lastName = lastName;
-        }
-
-        public Name GetName()
-        {
             return name;
         }
     }

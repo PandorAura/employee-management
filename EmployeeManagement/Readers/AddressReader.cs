@@ -1,8 +1,8 @@
-﻿namespace EmployeeManagement
+﻿namespace EmployeeManagement.Readers
 {
     public class AddressReader
     {
-        public String ReadCountryName()
+        public string ReadCountryName()
         {
             string countryName = "";
 
@@ -17,7 +17,6 @@
                 }
             }
             return countryName;
-         
         }
 
         public string ReadCityName()
@@ -54,7 +53,7 @@
             return streetName;
         }
 
-        public int ReadHouseNumber()
+        public int? ReadHouseNumber()
         {
             int? houseNumber = null;
 
@@ -73,10 +72,10 @@
                 }
 
             }
-            return (int)houseNumber;
+            return houseNumber;
         }
 
-        public int ReadApartamentBuildingNumber()
+        public int? ReadApartamentBuildingNumber()
         {
             int? apartamentBuildingNumber = null;
 
@@ -95,10 +94,10 @@
                 }
 
             }
-            return (int)apartamentBuildingNumber;
+            return apartamentBuildingNumber;
         }
 
-        public int ReadApartamentNumber()
+        public int? ReadApartamentNumber()
         {
             int? apartamentNumber = null;
             while (!IsNumberInputValid(apartamentNumber))
@@ -116,10 +115,10 @@
                 }
 
             }
-            return (int)apartamentNumber;
+            return apartamentNumber;
         }
 
-        public int ReadStreetNumber()
+        public int? ReadStreetNumber()
         {
             int? streetNumber = null;
 
@@ -137,7 +136,7 @@
                     streetNumber = Convert.ToInt32(numberRead);
                 }
             }
-            return (int)streetNumber;
+            return streetNumber;
         }
 
         private bool IsNumberInputValid(int? numberInput)
@@ -150,7 +149,7 @@
         private bool IsInputValid(string input)
         {
             if (input != "")
-               return true;
+                return true;
             return false;
         }
     }
