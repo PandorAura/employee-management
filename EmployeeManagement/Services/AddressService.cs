@@ -11,7 +11,7 @@ namespace EmployeeManagement.Services
         AddressValidator addressValidator = new AddressValidator();
         AddressRepository addressRepository= new AddressRepository();
 
-       public Address ConstructHouseAddress(string countryName, string cityName, string streetName, int houseNumber)
+       public Address ConstructHouseAddress(string countryName, string cityName, string streetName, int? houseNumber)
         {
             Address address = addressBuilder.ConstructHouseAddress(countryName, cityName, streetName, houseNumber);
             if (addressValidator.IsAddressValid(address))
@@ -25,7 +25,7 @@ namespace EmployeeManagement.Services
             }
         }
 
-        public Address ConstructApartamentAddress(string countryName, string cityName, string streetName, int apartamentBuildingNumber, int apartamentNumber)
+        public Address ConstructApartamentAddress(string countryName, string cityName, string streetName, int? apartamentBuildingNumber, int? apartamentNumber)
         {
             Address address = addressBuilder.ConstructApartamentAddress(countryName, cityName, streetName, apartamentBuildingNumber, apartamentNumber);
             if (addressValidator.IsAddressValid(address))

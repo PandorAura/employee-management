@@ -1,12 +1,13 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Readers;
 using EmployeeManagement.Services;
 
 namespace EmployeeManagement.Menu
 {
     public class NameMenu
     {
-        string firstName, lastName, middleName;
+        string? firstName, lastName, middleName;
 
 
         public Name CreateName()

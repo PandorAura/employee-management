@@ -1,5 +1,7 @@
 ﻿using EmployeeManagement.Builders;
 using EmployeeManagement.Models;
+using EmployeeManagement.Readers;
+using EmployeeManagement.Services;
 using System.Net;
 
 namespace EmployeeManagement.Menu
@@ -7,13 +9,13 @@ namespace EmployeeManagement.Menu
 
     public class AddressMenu
     {
-        string countryName, streetName, cityName;
-        int houseNumber, apartamentBuildingNumber, apartamentNumber;
+        string? countryName, streetName, cityName;
+        int? houseNumber, apartamentBuildingNumber, apartamentNumber;
 
         public Address CreateAddress()
         {
-            AddressBuilder addressBuilder = new AddressBuilder();
             AddressReader addressReader = new AddressReader();
+            AddressService addressService = new AddressService();
 
             Console.WriteLine("Choose between the following options: ");
             Console.WriteLine("1 - the person is living in a house");
@@ -30,7 +32,7 @@ namespace EmployeeManagement.Menu
                     streetName = addressReader.ReadStreetName();
                     houseNumber = addressReader.ReadHouseNumber();
 
-                    return addressBuilder.ConstructHouseAddress(countryName, cityName, streetName, houseNumber);
+                    return addressService.ConstructHouseAddress(countryName, cityName, streetName, houseNumber);
 
                 case "2":
                     countryName = addressReader.ReadCountryName();
@@ -39,7 +41,7 @@ namespace EmployeeManagement.Menu
                     apartamentBuildingNumber = addressReader.ReadApartamentBuildingNumber();
                     apartamentNumber = addressReader.ReadApartamentNumber();
 
-                    return addressBuilder.ConstructApartamentAddress(countryName, cityName, streetName, apartamentBuildingNumber, apartamentNumber);
+                    return addressService.ConstructApartamentAddress(countryName, cityName, streetName, apartamentBuildingNumber, apartamentNumber);
 
                 default:
                     throw new Exception("The option chosen doesn't exist!");
